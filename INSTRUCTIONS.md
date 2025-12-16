@@ -13,6 +13,8 @@ This guide details the steps to set up the environment and run inference using A
 
 We have provided a dedicated script for Jetson devices that handles the complex installation of PyTorch and Torchvision.
 
+**Supported JetPack Versions:** JetPack 6.0, 6.1, 6.2
+
 1.  **Make the script executable:**
     ```bash
     chmod +x setup_jetson.sh
@@ -22,7 +24,7 @@ We have provided a dedicated script for Jetson devices that handles the complex 
     ```bash
     ./setup_jetson.sh
     ```
-    *Note: This script assumes JetPack 6.0. If you are on a different version, you may need to edit the `TORCH_URL` in the script.*
+    *Note: This script uses a PyTorch 2.4 wheel compatible with JetPack 6.x. If you need a specific version, edit the `TORCH_URL` in `setup_jetson.sh`.*
 
 ## Standard Ubuntu Setup (x86_64 only)
 

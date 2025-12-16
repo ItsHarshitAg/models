@@ -19,10 +19,15 @@ fi
 echo "Activating virtual environment..."
 source venv/bin/activate
 
-# 3. Install PyTorch for Jetson (JetPack 6.0)
-# Using PyTorch v2.4.0 for JetPack 6.0 (CP310 for Python 3.10)
-# Verify this URL matches your specific JetPack version if it fails.
-TORCH_WHEEL_NAME="torch-2.4.0a0+6dd6c25.nv24.07-cp310-cp310-linux_aarch64.whl"
+# 3. Install PyTorch for Jetson (JetPack 6.0 / 6.1 / 6.2)
+# Using PyTorch v2.5.0 for JetPack 6.1 (Compatible with 6.2)
+# Note: JetPack 6.2 is very new. If this fails, fallback to the v2.4.0 wheel below.
+# TORCH_WHEEL_NAME="torch-2.5.0a0+872d972e41.nv24.08.17596369-cp310-cp310-linux_aarch64.whl"
+# TORCH_URL="https://developer.download.nvidia.com/compute/redist/jp/v61/pytorch/${TORCH_WHEEL_NAME}"
+
+# Using PyTorch v2.4.0 (Stable for JetPack 6.x)
+# This version is widely tested on JetPack 6.0 and should work on 6.2
+TORCH_WHEEL_NAME="torch-2.4.0a0+3bcc3cddb5.nv24.07.16234504-cp310-cp310-linux_aarch64.whl"
 TORCH_URL="https://developer.download.nvidia.com/compute/redist/jp/v60/pytorch/${TORCH_WHEEL_NAME}"
 
 if ! python -c "import torch" &> /dev/null; then
